@@ -1,15 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerBehaviour : MonoBehaviour
 {
     public int reference;
     [SerializeField]
-    private int score;
+    public int score;
+    [SerializeField]
+    private float yOffset;
+    [SerializeField]
+    private TextMeshProUGUI nameText;
+
     void Start()
     {
-        
+        nameText.text = NameManager.instance.names[reference];
     }
 
     // Update is called once per frame
@@ -17,17 +23,25 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (reference == GameManager.instance.playerSelected);
         {
-            transform.position = Vector3.Lerp(transform.position, GameManager.instance.tiles[score].transform.position,0.2f);
+            float numY = yOffset * GameManager.instance.yOff;
+            transform.position = Vector3.Lerp(transform.position, new Vector3(GameManager.instance.tiles[score].transform.position.x, GameManager.instance.tiles[score].transform.position.y +numY,0), 0.2f);
         }
     }
 
-    public void incScore()
+    public void incScore(int i)
     {
-        score++;
+        score += i;
+        if(score >= GameManager.instance.tiles.Length - 1)
+        {
+            GameManager.instance.checkIfGameWon();
+        }
     }
 
-    public void decScore()
+        public void decScore()
     {
-        score--;
+        if (score > 0)
+        {
+            score--;
+        }
     }
 }

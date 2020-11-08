@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -17,7 +18,9 @@ public class GameManager : MonoBehaviour
     public List<int> cardSelection;
     public List<TextMeshProUGUI> cardText;
     public TextAsset IndignitiesText;
+    public GameObject turnIndicator;
     public TextMeshProUGUI turnText;
+    public GameObject playerIndicatorImage;
     public TextMeshProUGUI playerIndicatorText;
     public List<string> Indignities;
     public List<int> winningPlayers;
@@ -25,6 +28,7 @@ public class GameManager : MonoBehaviour
     public List<int> selections;
     public bool groupSelect;
     public float yOff = 1;
+    public GameObject nextRoundButton;
 
     //WINNING TEXT
     public GameObject winnerObj;
@@ -62,7 +66,8 @@ public class GameManager : MonoBehaviour
         selectIndignities();
         turnOnCards(false);
         turnOnCards(true);
-        playerIndicatorText.text = NameManager.instance.names[playerSelected];
+        nextRoundButton.SetActive(false);
+        setIndicatorImage();
 
     }
 
@@ -98,11 +103,9 @@ public class GameManager : MonoBehaviour
             int num = Random.Range(0, Indignities.Count - 1);
             cardSelection[i] = num;
             cardText[i].text = Indignities[num];
+            Indignities.RemoveAt(num);
         }
-        if (cardSelection[0] == cardSelection[1])
-        {
-            selectIndignities();
-        }
+        
         turnText.text = "GROUP TURN";
         groupSelect = true;
     }
@@ -113,10 +116,14 @@ public class GameManager : MonoBehaviour
         {
             selections[0] = i;
             groupSelect = false;
+            turnIndicator.SetActive(false);
+            turnIndicator.SetActive(true);
             turnText.text = "PLAYER TURN";
         }
         else
         {
+            turnIndicator.SetActive(false);
+            turnIndicator.SetActive(true);
             selections[1] = i;
             compareAnswers();
         }
@@ -147,17 +154,18 @@ public class GameManager : MonoBehaviour
                 incPlayerScore(i,1);
             }
         }
-        nextPlayer();
-        startTurn();
-        
+        turnText.text = "DISCUSSION TIME!";
+        nextRoundButton.SetActive(true);
+
     }
 
     public void playerWins()
     {
         incPlayerScore(playerSelected,2);
-        nextPlayer();
-        startTurn();
-        
+        turnText.text = "DISCUSSION TIME!";
+        nextRoundButton.SetActive(true);
+
+
     }
 
     public void clearScores()
@@ -186,6 +194,19 @@ public class GameManager : MonoBehaviour
                 winnerObj.SetActive(true);
             }
         }
+    }
+
+    public void setIndicatorImage()
+    {
+        playerIndicatorText.text = NameManager.instance.names[playerSelected] + '\n' + "Write down which is WORST" +'\n' + "Then proceed to...";
+        Color playerColour = players[playerSelected].GetComponent<PlayerBehaviour>().token.color;
+        playerIndicatorImage.GetComponent<Image>().color = playerColour;
+    }
+
+    public void groupDiscussion()
+    {
+        nextPlayer();
+        startTurn();
     }
 
   

@@ -53,6 +53,7 @@ MonoBehaviour:
   score: 0
   yOffset: 0
   nameText: {fileID: 967147537757149311}
+  token: {fileID: 7484691413780098300}
 --- !u!1 &7484691413780098302
 GameObject:
   m_ObjectHideFlags: 0

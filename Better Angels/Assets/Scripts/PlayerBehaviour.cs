@@ -1,6 +1,8 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class PlayerBehaviour : MonoBehaviour
@@ -12,10 +14,13 @@ public class PlayerBehaviour : MonoBehaviour
     private float yOffset;
     [SerializeField]
     private TextMeshProUGUI nameText;
+    public Image token;
 
     void Start()
     {
-        nameText.text = NameManager.instance.names[reference];
+        string name = NameManager.instance.names[reference];
+        char[] array = name.Take(2).ToArray();
+        nameText.text = new string(array);
     }
 
     // Update is called once per frame

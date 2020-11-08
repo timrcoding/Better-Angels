@@ -376,10 +376,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -826,36 +826,40 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Compete with your friends to get to the end of the board first.
 
-
     This
-    game should be played with a separate voice chat enabled.
+    game should be played with a Discord or other voice chat enabled.
 
 
     Instructions
 
 
-    -
-    Two cards will appear, each with an unpleasant indignity on them. The player
-    who turn it is should write down on paper, which they consider the lesser of
-    the two evils. They will not reveal this to the other players.
+    -Set
+    up the game so that one player is hosting and sharing their screen, while the
+    other players watch this screen.
 
 
-    - The remaining
-    players will then discuss which option they think the first player has chosen
-    and select this from the two cards by clicking on it.
+    - Two cards will appear. The player who
+    turn it is should consider which they consider the worst. They should then write
+    down in the chat R or B, to signify Red or Blue. None of the other players should
+    look at the chat.
 
 
-    - The player then
-    reveals what their choice was and clicks on the card they selected.
+    Group Turn
+
+    - The remaining players will then discuss
+    which option they think the first player has chosen and select this from the
+    two cards by clicking on it.
 
 
-    - If
-    this group guessed correctly, they move foward 1 space. If the group guessed
-    incorrectly, the player moves forward 2 spaces.
+    Player Turn
+
+    - The player then reveals
+    what their choice was and clicks on the card they selected.
 
 
-    -The first to reach the
-    end wins.'
+    - If this group
+    guessed correctly, they move foward 1 space. If the group guessed incorrectly,
+    the player moves forward 2 spaces. The first to reach the end wins.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5ad048c5c6cfce6428015ca39214008f, type: 2}
   m_sharedMaterial: {fileID: 3847021876005877001, guid: 5ad048c5c6cfce6428015ca39214008f,
@@ -884,7 +888,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 23.1
+  m_fontSize: 21.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -925,12 +929,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 766587984}
-    characterCount: 763
+    characterCount: 910
     spriteCount: 0
-    spaceCount: 144
-    wordCount: 138
+    spaceCount: 173
+    wordCount: 168
     linkCount: 0
-    lineCount: 23
+    lineCount: 26
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1825,7 +1829,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -208.48688, y: 372}
-  m_SizeDelta: {x: 802.97375, y: 172.82799}
+  m_SizeDelta: {x: 784.2091, y: 172.82799}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2071112926
 MonoBehaviour:
@@ -1846,7 +1850,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LESSER EVILS
+  m_text: JUST THE WORST
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5ad048c5c6cfce6428015ca39214008f, type: 2}
   m_sharedMaterial: {fileID: 3847021876005877001, guid: 5ad048c5c6cfce6428015ca39214008f,
@@ -1875,7 +1879,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 113.1
+  m_fontSize: 85.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1916,10 +1920,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2071112926}
-    characterCount: 12
+    characterCount: 14
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
     lineCount: 1
     pageCount: 1
